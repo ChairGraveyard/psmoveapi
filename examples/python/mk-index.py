@@ -57,9 +57,8 @@ while len(serials) < len(moves):
         #move.update_leds()
 
 
-fp = open('serials.txt', 'w')
-stxt = '\n'.join('%d: %s' % x for x in enumerate(serials))
-print(stxt)
-fp.write(stxt)
-fp.close()
+with open('serials.txt', 'w') as fp:
+    stxt = '\n'.join('%d: %s' % x for x in enumerate(serials))
+    print(stxt)
+    fp.write(stxt)
 

@@ -43,11 +43,7 @@ elif move.connection_type == psmove.Conn_USB:
 else:
     print('unknown')
 
-if len(sys.argv) == 2:
-    result = move.pair_custom(sys.argv[-1])
-else:
-    result = move.pair()
-
+result = move.pair_custom(sys.argv[-1]) if len(sys.argv) == 2 else move.pair()
 if result:
     print('successfully paired :)')
 else:

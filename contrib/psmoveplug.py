@@ -30,20 +30,13 @@ class Display:
         stdout, _ = ifconfig.communicate()
 
         ips = re.findall('addr:([^ ]+)', stdout)
-        result = filter(lambda ip: not ip.startswith('127.'), ips)
-
-        if result:
+        if result := filter(lambda ip: not ip.startswith('127.'), ips):
             return result[0]
         else:
             return 'offline'
 
     def update(self, message):
-        self.send([
-            'PS Move Plug',
-            ' ',
-            'IP: %s' % self.get_ip(),
-            'moved: %s' % message,
-        ])
+        self.send(['PS Move Plug', ' ', f'IP: {self.get_ip()}', f'moved: {message}'])
 
 
 class MoveDaemon:

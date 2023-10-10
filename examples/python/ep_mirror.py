@@ -361,10 +361,7 @@ class CubeSnapshot:
     def calc_distance(self):
         current_pos = fusion.get_position(move)
         distance = vector_distance(current_pos, self.pos)
-        if distance != 0.0:
-            self.intensity = min(1.0, 1. / distance)
-        else:
-            self.intensity = 1.
+        self.intensity = min(1.0, 1. / distance) if distance != 0.0 else 1.
 
 while True:
     while move.poll():

@@ -36,6 +36,6 @@ PsMoveApi.init()
 
 c = PsMoveApi.Controller()
 
-for i in range(1000):
+for _ in range(1000):
     c.r = (c.r + 2) % 255
 
