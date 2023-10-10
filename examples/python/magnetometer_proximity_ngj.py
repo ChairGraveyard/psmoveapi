@@ -102,17 +102,7 @@ while True:
                 move.set_leds(255, 0, 0)
             else:
                 move.set_leds(0, 0, 0) #int(255 * factor**2), 0)
-        else:
-            pass
-            #move.set_leds(0, 0, 0)
-
-        if len(l) != 3:
-            #move.set_leds(int(proximity*255), 0, 0)
-            pass
-        else:
+        if len(l) == 3:
             proximity = math.pow(float(sum(l))/len(l)/2048, 3)
-            #print 'proximity:', proximity
-            #move.set_leds(0, int(proximity*255), 0)
-
         move.update_leds()
 
